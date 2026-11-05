@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+    font-optical-sizing: auto;
+  }
+
+  ::selection {
+    background: #fde6de;
+    color: #14161a;
+  }
+
+  :focus-visible {
+    outline: 2px solid #d9472a;
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .placeholder-stripes {
+    background-color: #f4f5f6;
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(20, 22, 26, 0.035) 0,
+      rgba(20, 22, 26, 0.035) 1px,
+      transparent 1px,
+      transparent 12px
+    );
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
