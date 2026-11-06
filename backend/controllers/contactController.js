@@ -65,6 +65,7 @@ export async function submitContact(req, res, next) {
         id: result.insertId,
         name,
         email,
+        phone,
         subject,
         createdAt: new Date().toISOString(),
       },

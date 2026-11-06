@@ -16,6 +16,7 @@ import Reveal from "./ui/Reveal";
 const initialValues = {
   name: "",
   email: "",
+  phone: "",
   subject: "",
   message: "",
 };
@@ -31,6 +32,11 @@ function validate(values) {
     next.email = errorCopy.emailRequired;
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
     next.email = errorCopy.emailInvalid;
+  }
+  if (values.phone && values.phone.trim()) {
+    if (!/^[+0-9\s\-().]{5,30}$/.test(values.phone.trim())) {
+      next.phone = errorCopy.phoneInvalid;
+    }
   }
   if (!values.subject.trim()) next.subject = errorCopy.subject;
 
@@ -64,7 +70,7 @@ export default function Contact() {
 
     if (Object.keys(nextErrors).length) {
       setSubmitted(false);
-      const firstField = ["name", "email", "subject"].find((field) => nextErrors[field]);
+      const firstField = ["name", "email", "phone", "subject"].find((field) => nextErrors[field]);
       document.getElementById(`contact-${firstField}`)?.focus();
       return;
     }
@@ -74,6 +80,7 @@ export default function Contact() {
       await submitContactMessage({
         name: values.name.trim(),
         email: values.email.trim(),
+        phone: values.phone.trim() || undefined,
         subject: values.subject.trim(),
         message: values.message.trim(),
       });
@@ -97,7 +104,8 @@ export default function Contact() {
   };
 
   const mailSubject = values.subject.trim() || "Portfolio enquiry";
-  const mailBody = `${values.name.trim()}\n${values.email.trim()}\n\n${values.message.trim()}`;
+  const phoneSnippet = values.phone.trim() ? `Phone: ${values.phone.trim()}\n` : "";
+  const mailBody = `${values.name.trim()}\n${values.email.trim()}\n${phoneSnippet}\n${values.message.trim()}`;
   const mailtoHref = `${site.emailHref}?subject=${encodeURIComponent(
     mailSubject
   )}&body=${encodeURIComponent(mailBody)}`;
@@ -236,32 +244,62 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="mt-5">
-                    <label
-                      htmlFor="contact-subject"
-                      className="text-sm font-medium text-secondary"
-                    >
-                      {formFields.subject.label}
-                    </label>
-                    <input
-                      id="contact-subject"
-                      name="subject"
-                      type="text"
-                      disabled={isSubmitting}
-                      autoComplete={formFields.subject.autoComplete}
-                      placeholder={formFields.subject.placeholder}
-                      value={values.subject}
-                      onChange={updateField}
-                      aria-required="true"
-                      aria-invalid={errors.subject ? "true" : "false"}
-                      aria-describedby={errors.subject ? "contact-subject-error" : undefined}
-                      className={cn(fieldClass, errors.subject && "border-accent")}
-                    />
-                    {errors.subject ? (
-                      <p id="contact-subject-error" className="mt-2 text-xs text-accent-strong">
-                        {errors.subject}
-                      </p>
-                    ) : null}
+                  <div className="mt-5 grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <label
+                        htmlFor="contact-phone"
+                        className="text-sm font-medium text-secondary"
+                      >
+                        {formFields.phone.label}{" "}
+                        <span className="font-normal text-muted">(optional)</span>
+                      </label>
+                      <input
+                        id="contact-phone"
+                        name="phone"
+                        type="tel"
+                        disabled={isSubmitting}
+                        autoComplete={formFields.phone.autoComplete}
+                        placeholder={formFields.phone.placeholder}
+                        value={values.phone}
+                        onChange={updateField}
+                        aria-invalid={errors.phone ? "true" : "false"}
+                        aria-describedby={errors.phone ? "contact-phone-error" : undefined}
+                        className={cn(fieldClass, errors.phone && "border-accent")}
+                      />
+                      {errors.phone ? (
+                        <p id="contact-phone-error" className="mt-2 text-xs text-accent-strong">
+                          {errors.phone}
+                        </p>
+                      ) : null}
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="contact-subject"
+                        className="text-sm font-medium text-secondary"
+                      >
+                        {formFields.subject.label}
+                      </label>
+                      <input
+                        id="contact-subject"
+                        name="subject"
+                        type="text"
+                        disabled={isSubmitting}
+                        autoComplete={formFields.subject.autoComplete}
+                        placeholder={formFields.subject.placeholder}
+                        value={values.subject}
+                        onChange={updateField}
+                        aria-required="true"
+                        aria-invalid={errors.subject ? "true" : "false"}
+                        aria-describedby={errors.subject ? "contact-subject-error" : undefined}
+                        className={cn(fieldClass, errors.subject && "border-accent")}
+                      />
+                      {errors.subject ? (
+                        <p id="contact-subject-error" className="mt-2 text-xs text-accent-strong">
+                          {errors.subject}
+                        </p>
+                      ) : null}
+                    </div>
                   </div>
 
                   <div className="mt-5">

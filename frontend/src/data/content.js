@@ -279,6 +279,12 @@ export const formFields = {
     placeholder: "you@company.com",
     autoComplete: "email",
   },
+  phone: {
+    label: "Phone",
+    optional: true,
+    placeholder: "+1 (555) 000-0000",
+    autoComplete: "tel",
+  },
   subject: {
     label: "Subject",
     placeholder: "What do you need help with?",
@@ -295,6 +301,7 @@ export const errors = {
   name: "Please enter your name.",
   emailRequired: "Please enter your email address.",
   emailInvalid: "Please enter a valid email address.",
+  phoneInvalid: "Please enter a valid phone number format.",
   subject: "Please add a subject.",
 };
 

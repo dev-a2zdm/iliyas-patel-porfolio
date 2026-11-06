@@ -7,7 +7,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || (import.meta.env.DEV ?
 
 /**
  * Submit contact message to backend API
- * @param {Object} payload - { name, email, subject, message }
+ * @param {Object} payload - { name, email, phone, subject, message }
  * @returns {Promise<Object>} API response data
  */
 export async function submitContactMessage(payload) {
