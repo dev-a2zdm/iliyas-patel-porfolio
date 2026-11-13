@@ -3,7 +3,11 @@
  * Supports configurable VITE_API_BASE_URL environment variable.
  * Defaults to http://localhost:5000 in development, or relative path in production.
  */
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || (import.meta.env.DEV ? 'http://localhost:5000' : '');
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || (
+  import.meta.env.DEV
+    ? 'http://localhost:5000'
+    : 'https://peachpuff-squirrel-679572.hostingersite.com'
+);
 
 /**
  * Submit contact message to backend API
