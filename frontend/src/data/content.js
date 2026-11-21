@@ -4,8 +4,6 @@ export const site = {
   role: "Digital Analytics & Technical SEO Consultant",
   description:
     "Subject matter expert in technical SEO and digital analytics, with an MBA in web analytics and more than 15 years of experience.",
-  phone: "+91 98937 21848",
-  phoneHref: "tel:+919893721848",
   email: "info@a2zdm.com",
   emailHref: "mailto:info@a2zdm.com",
 };
@@ -31,7 +29,7 @@ export const hero = {
   secondaryCta: { label: "See projects", href: "#cases" },
   image: {
     src: "/images/iliyas-patel.jpg",
-    alt: "Portrait of Iliyas Patel, digital analytics and technical SEO consultant",
+    alt: "Portrait of Iliyas Patel, digital analytics and technical SEO consultant in modern office",
     label: "PROFILE PHOTO",
   },
   imageBadge: "15+ years in search & analytics",
@@ -264,7 +262,7 @@ export const contact = {
   submitLabel: "Send message",
   successTitle: "Your message is ready.",
   successBody:
-    "This static portfolio does not send email by itself. Open your email app to send the message to Iliyas, or use the phone number above.",
+    "This static portfolio does not send email by itself. Open your email app to send the message to Iliyas, or reach out via email.",
   mailtoNote: "Opens your email app",
 };
 

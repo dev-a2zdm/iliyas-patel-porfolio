@@ -169,7 +169,7 @@ export default function Hero({ imageSrc }) {
                 loading="eager"
                 fetchPriority="high"
                 className="aspect-[4/5] rounded-[28px] border border-line bg-soft shadow-card"
-                imageClassName="object-[center_22%]"
+                imageClassName="scale-[1.14] object-[center_16%] origin-[center_20%]"
               />
               <div className="absolute inset-x-4 bottom-4 flex items-center gap-2 rounded-2xl border border-white/50 bg-white/[0.92] px-4 py-3 text-xs font-medium text-secondary shadow-sm backdrop-blur">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />

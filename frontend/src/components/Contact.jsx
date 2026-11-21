@@ -132,10 +132,10 @@ export default function Contact() {
               {contact.description}
             </p>
             <a
-              href={site.phoneHref}
+              href={site.emailHref}
               className="mt-8 inline-flex items-center gap-2 border-b border-accent pb-1 font-serif text-2xl font-medium tracking-[-0.02em] text-ink transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
             >
-              {site.phone}
+              {site.email}
               <ArrowUpRight size={17} aria-hidden="true" />
             </a>
           </Reveal>
