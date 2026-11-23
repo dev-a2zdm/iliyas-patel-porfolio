@@ -3,7 +3,7 @@ export const site = {
   initials: "IP",
   role: "Digital Analytics & Technical SEO Consultant",
   description:
-    "Subject matter expert in technical SEO and digital analytics, with an MBA in web analytics and more than 15 years of experience.",
+    "Subject matter expert in technical SEO and digital analytics, with an MBA in web analytics and more than 18 years of experience.",
   email: "info@a2zdm.com",
   emailHref: "mailto:info@a2zdm.com",
 };
@@ -24,7 +24,7 @@ export const hero = {
   eyebrow: "Digital Analytics · Technical SEO · GA4 · GTM",
   title: "Measurement you can trust. Search that actually grows.",
   intro:
-    "Iliyas Patel is a subject matter expert in technical SEO and digital analytics. With an MBA in web analytics and more than 15 years in the field, he helps brands fix broken tracking, rebuild their data pipelines and make their sites easier for search engines to crawl and understand.",
+    "Iliyas Patel is a subject matter expert in technical SEO and digital analytics. With an MBA in web analytics and more than 18 years in the field, he helps brands fix broken tracking, rebuild their data pipelines and make their sites easier for search engines to crawl and understand.",
   primaryCta: { label: "Start a conversation", href: "#contact" },
   secondaryCta: { label: "See projects", href: "#cases" },
   image: {
@@ -32,12 +32,12 @@ export const hero = {
     alt: "Portrait of Iliyas Patel, digital analytics and technical SEO consultant in modern office",
     label: "PROFILE PHOTO",
   },
-  imageBadge: "15+ years in search & analytics",
+  imageBadge: "18+ years in search & analytics",
 };
 
 export const stats = [
   {
-    value: "15+",
+    value: "18+",
     label: "Years in SEO and digital analytics",
   },
   {
